@@ -1,0 +1,17 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly",
+    "localStorage": false,
+    "window": false,
+    "config.headers['Content-Type']": false,
+    "config.headers.Accept": false,
+    "config.headers.Authorization": false,
+    "Promise": false
+  }
+}

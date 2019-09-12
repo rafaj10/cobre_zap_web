@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from 'react';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import AuthenticatedRoute from './Core/routes';
+
+import LoginPage from './Pages/Login/Login';
+import HomePage from './Pages/Home/Home';
+import Playground from "./Pages/Playground/Playground";
+
+import store from './Core/redux.store';
+
+const loading = () => <div className="loading-ui">Carregando</div>
 
 function App() {
+
+  const authenticatedContent = () => {
+    return (
+      <>
+        <Route path='/home' component={HomePage} />
+        {process.env.REACT_APP_ISDEV && (<Route path='/play' component={Playground} />)}
+      </>
+    )
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Provider store={store}>
+      <Suspense fallback={loading()}>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" component={LoginPage} />
+            <AuthenticatedRoute
+              path="/"
+              caseAuth={authenticatedContent()}
+              caseUnauth={<Redirect to={'/'} />}
+            />
+            <Redirect from='*' to='/error' />
+          </Switch>
+        </BrowserRouter>
+      </Suspense>
+    </Provider>
+    </>
   );
 }
+
 
 export default App;
