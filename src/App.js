@@ -6,6 +6,8 @@ import AuthenticatedRoute from './Core/routes';
 import LoginPage from './Pages/Login/Login';
 import HomePage from './Pages/Home/Home';
 import Playground from "./Pages/Playground/Playground";
+import ContactsPage from "./Pages/Contacts";
+import GroupsPage from "./Pages/Groups";
 
 import store from './Core/redux.store';
 
@@ -17,6 +19,8 @@ function App() {
     return (
       <>
         <Route path='/home' component={HomePage} />
+        <Route path='/contatos' component={ContactsPage} />
+        <Route path='/grupos' component={GroupsPage} />
         {process.env.REACT_APP_ISDEV && (<Route path='/play' component={Playground} />)}
       </>
     )

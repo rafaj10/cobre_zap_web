@@ -7,7 +7,7 @@ PlusButtton.propTypes = {
 
 function PlusButtton(props) {
   return (
-    <div style={{ bottom: '50px', right: '19px' }} className="fixed-action-btn direction-top"><p className="btn-floating btn-large gradient-45deg-light-blue-cyan gradient-shadow" onClick={() => props.plusCallback()}><i className="material-icons">add</i></p>
+    <div style={{ bottom: '50px', right: '19px' }} className="fixed-action-btn direction-top"><p className="btn-floating btn-large gradient-45deg-cyan-light-green gradient-shadow" onClick={() => props.plusCallback()}><i className="material-icons">add</i></p>
     </div>
   );
 }

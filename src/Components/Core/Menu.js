@@ -11,7 +11,11 @@ function Menu(props) {
           <li className="navigation-header"><a href="# " className="navigation-header-text">Principal </a><i className="navigation-header-icon material-icons">more_horiz</i>
           </li>
           <li className={props.selected === "home" ? "active" : ""} ><a href="# " onClick={() => props.history.push(`/home`)} className={props.selected === "home" ? "collapsible-body active" : "collapsible-body"}><i className="material-icons">home</i><span>Home</span></a></li>
+          <li className={props.selected === "contatos" ? "active" : ""}><a href="# " onClick={() => props.history.push(`/contatos`)} className={props.selected === "contatos" ? "collapsible-body active" : "collapsible-body"}><i className="material-icons">contacts</i><span>Contatos</span></a></li>
+          <li className={props.selected === "grupos" ? "active" : ""}><a href="# " onClick={() => props.history.push(`/grupos`)} className={props.selected === "grupos" ? "collapsible-body active" : "collapsible-body"}><i className="material-icons">groups</i><span>Grupos</span></a></li>
           <li className={props.selected === "disparos" ? "active" : ""}><a href="# " onClick={() => props.history.push(`/disparos`)} className={props.selected === "agencies" ? "collapsible-body active" : "collapsible-body"}><i className="material-icons">email</i><span>Disparos</span></a></li>
+          <li className={props.selected === "disparos" ? "active" : ""}><a href="# " onClick={() => props.history.push(`/disparos`)} className={props.selected === "agencies" ? "collapsible-body active" : "collapsible-body"}><i className="material-icons">insert_chart</i><span>Relatórios</span></a></li>
+          <li className={props.selected === "disparos" ? "active" : ""}><a href="# " onClick={() => props.history.push(`/disparos`)} className={props.selected === "agencies" ? "collapsible-body active" : "collapsible-body"}><i className="material-icons">credit_card</i><span>Pagamentos</span></a></li>
         </ul>
         <div className="navigation-background"></div><a href="# " className="sidenav-trigger btn-sidenav-toggle btn-floating btn-medium waves-effect waves-light hide-on-large-only" data-target="slide-out"><i className="material-icons">menu</i></a>
       </aside>

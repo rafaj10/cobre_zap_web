@@ -3,17 +3,15 @@ import PropTypes from 'prop-types';
 
 const $ = window.$;
 
-ClassicModal.propTypes = {
+ClassicConfirmationModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
-  renderContent: PropTypes.any.isRequired,
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string.isRequired,
-  isModalLoading: PropTypes.bool.isRequired,
   onClose: PropTypes.func,
   onConfirm: PropTypes.func
 }
 
-function ClassicModal(props) {
+function ClassicConfirmationModal(props) {
 
   useEffect(() => {
     $('.modal').modal({
@@ -33,23 +31,15 @@ function ClassicModal(props) {
 
 
   useEffect(() => {
-    props.isOpen ? $('#modal1').modal('open') : $('#modal1').modal('close');
+    props.isOpen ? $('#modal2').modal('open') : $('#modal2').modal('close');
   }, [props.isOpen]);
 
   return (
-    <div id="modal1" className="modal modal-fixed-footer">
+    <div id="modal2" className="modal modal-fixed-footer-confirmation">
       <div className="modal-content">
         <h4>{props.title}</h4>
         <p>{props.subTitle}</p>
-        {props.renderContent}
       </div>
-      {props.isModalLoading ? (
-        <div className="modal-footer">
-          <div className="progress">
-            <div className="indeterminate green"></div>
-          </div>
-        </div>
-      ) : (
         <div className="modal-footer">
           <button className="red btn btn-reset" type="reset" onClick={() => {
             props.onClose && props.onClose();
@@ -62,10 +52,8 @@ function ClassicModal(props) {
             <i className="material-icons right">send</i>
           </button>
         </div>
-      )}
-
     </div>
   );
 }
 
-export default ClassicModal;
+export default ClassicConfirmationModal;
